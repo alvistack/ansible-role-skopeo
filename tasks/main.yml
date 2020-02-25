@@ -59,8 +59,10 @@
     - { dest: "/etc/containers" }
     - { dest: "/etc/containers/certs.d" }
     - { dest: "/etc/containers/oci/hooks.d" }
+    - { dest: "/etc/containers/registries.d" }
     - { dest: "/usr/local/bin" }
     - { dest: "/usr/share/containers" }
+    - { dest: "/var/lib/containers/sigstore" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
   tags: skopeo
 
@@ -108,6 +110,7 @@
   loop:
     - { dest: "/etc/containers/policy.json" }
     - { dest: "/etc/containers/registries.conf" }
+    - { dest: "/etc/containers/registries.d/default.yaml" }
     - { dest: "/etc/containers/storage.conf" }
     - { dest: "/usr/share/containers/containers.conf" }
     - { dest: "/usr/share/containers/mounts.conf" }
@@ -124,6 +127,7 @@
   loop:
     - { dest: "/etc/containers/policy.json" }
     - { dest: "/etc/containers/registries.conf" }
+    - { dest: "/etc/containers/registries.d/default.yaml" }
     - { dest: "/etc/containers/storage.conf" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
     - { dest: "/usr/share/containers/containers.conf" }
