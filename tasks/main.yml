@@ -56,7 +56,14 @@
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
   loop:
+    - { dest: "/etc/containers" }
+    - { dest: "/etc/containers/certs.d" }
+    - { dest: "/etc/containers/oci/hooks.d" }
+    - { dest: "/etc/containers/registries.d" }
     - { dest: "/usr/local/bin" }
+    - { dest: "/usr/local/share/bash-completion/completions" }
+    - { dest: "/usr/share/containers" }
+    - { dest: "/var/lib/containers/sigstore" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
   tags: skopeo
 
@@ -81,17 +88,38 @@
     set -o pipefail
     TMP_DIR="$(mktemp -d)" \
       && export GOPATH=$TMP_DIR \
+      && export PATH="$GOPATH/bin:$PATH" \
+      && cd $GOPATH \
+      && go get -u github.com/cpuguy83/go-md2man \
       && mkdir -p $GOPATH/src/github.com/containers/skopeo \
       && cd $GOPATH/src/github.com/containers/skopeo \
       && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
-      && make binary-local BUILDTAGS='' \
-      && mv skopeo /usr/local/bin/ \
+      && export PREFIX="/usr/local" \
+      && make binary-local \
+      && make install \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
   when: get_url_result is changed
   register: result
   until: result is succeeded
+  tags: skopeo
+
+- name: copy templates
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "/etc/containers/policy.json" }
+    - { dest: "/etc/containers/registries.conf" }
+    - { dest: "/etc/containers/registries.d/default.yaml" }
+    - { dest: "/etc/containers/storage.conf" }
+    - { dest: "/usr/share/containers/containers.conf" }
+    - { dest: "/usr/share/containers/mounts.conf" }
+    - { dest: "/usr/share/containers/seccomp.json" }
   tags: skopeo
 
 - name: prepare files
@@ -102,5 +130,13 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
+    - { dest: "/etc/containers/policy.json" }
+    - { dest: "/etc/containers/registries.conf" }
+    - { dest: "/etc/containers/registries.d/default.yaml" }
+    - { dest: "/etc/containers/storage.conf" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
+    - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
+    - { dest: "/usr/share/containers/containers.conf" }
+    - { dest: "/usr/share/containers/mounts.conf" }
+    - { dest: "/usr/share/containers/seccomp.json" }
   tags: skopeo

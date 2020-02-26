@@ -21,4 +21,6 @@
     - role: python
     - role: git
     - role: golang
+    - role: runc
+    - role: conmon
     - role: skopeo
