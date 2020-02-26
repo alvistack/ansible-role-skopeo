@@ -94,8 +94,9 @@
       && mkdir -p $GOPATH/src/github.com/containers/skopeo \
       && cd $GOPATH/src/github.com/containers/skopeo \
       && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
-      && make binary-local PREFIX="/usr/local" \
-      && make install PREFIX="/usr/local" \
+      && export PREFIX="/usr/local" \
+      && make binary-local \
+      && make install \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
