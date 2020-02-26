@@ -61,6 +61,7 @@
     - { dest: "/etc/containers/oci/hooks.d" }
     - { dest: "/etc/containers/registries.d" }
     - { dest: "/usr/local/bin" }
+    - { dest: "/usr/local/share/bash-completion/completions" }
     - { dest: "/usr/share/containers" }
     - { dest: "/var/lib/containers/sigstore" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
@@ -91,7 +92,7 @@
       && cd $GOPATH/src/github.com/containers/skopeo \
       && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
       && make binary-local \
-      && mv skopeo /usr/local/bin/ \
+      && make install \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
@@ -130,6 +131,7 @@
     - { dest: "/etc/containers/registries.d/default.yaml" }
     - { dest: "/etc/containers/storage.conf" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
+    - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
     - { dest: "/usr/share/containers/containers.conf" }
     - { dest: "/usr/share/containers/mounts.conf" }
     - { dest: "/usr/share/containers/seccomp.json" }
