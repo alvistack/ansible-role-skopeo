@@ -70,7 +70,6 @@
                 "chmod",
                 "chown",
                 "chown32",
-                "clock_adjtime",
                 "clock_getres",
                 "clock_gettime",
                 "clock_nanosleep",
@@ -335,7 +334,6 @@
                 "sync_file_range",
                 "syncfs",
                 "sysinfo",
-                "syslog",
                 "tee",
                 "tgkill",
                 "time",
@@ -537,8 +535,7 @@
             "names": [
                 "s390_pci_mmio_read",
                 "s390_pci_mmio_write",
-                "s390_runtime_instr",
-                "clone"
+                "s390_runtime_instr"
             ]
         },
         {
@@ -577,6 +574,7 @@
                 "setdomainname",
                 "sethostname",
                 "setns",
+                "syslog",
                 "umount",
                 "umount2",
                 "unshare"
@@ -685,23 +683,6 @@
             "excludes": {},
             "includes": {
                 "caps": [
-                    "CAP_SYS_NICE"
-                ]
-            },
-            "names": [
-                "get_mempolicy",
-                "mbind",
-                "name_to_handle_at",
-                "set_mempolicy"
-            ]
-        },
-        {
-            "action": "SCMP_ACT_ALLOW",
-            "args": [],
-            "comment": "",
-            "excludes": {},
-            "includes": {
-                "caps": [
                     "CAP_SYS_PACCT"
                 ]
             },
@@ -754,9 +735,7 @@
             "names": [
                 "settimeofday",
                 "stime",
-                "clock_settime",
-                "clock_adjtime",
-                "adjtimex"
+                "clock_settime"
             ]
         },
         {
@@ -771,6 +750,36 @@
             },
             "names": [
                 "vhangup"
+            ]
+        },
+        {
+            "action": "SCMP_ACT_ALLOW",
+            "args": [],
+            "comment": "",
+            "excludes": {},
+            "includes": {
+                "caps": [
+                    "CAP_SYS_NICE"
+                ]
+            },
+            "names": [
+                "get_mempolicy",
+                "mbind",
+                "set_mempolicy"
+            ]
+        },
+        {
+            "action": "SCMP_ACT_ALLOW",
+            "args": [],
+            "comment": "",
+            "excludes": {},
+            "includes": {
+                "caps": [
+                    "CAP_SYSLOG"
+                ]
+            },
+            "names": [
+                "syslog"
             ]
         }
     ]
