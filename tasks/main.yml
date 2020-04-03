@@ -90,7 +90,9 @@
       && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
       && export PREFIX="/usr/local" \
       && make binary-local \
-      && make install \
+      && make install-binary \
+      && make install-docs \
+      && make install-completions \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
