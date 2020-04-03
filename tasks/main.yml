@@ -56,14 +56,8 @@
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
   loop:
-    - { dest: "/etc/containers" }
-    - { dest: "/etc/containers/certs.d" }
-    - { dest: "/etc/containers/oci/hooks.d" }
-    - { dest: "/etc/containers/registries.d" }
     - { dest: "/usr/local/bin" }
     - { dest: "/usr/local/share/bash-completion/completions" }
-    - { dest: "/usr/share/containers" }
-    - { dest: "/var/lib/containers/sigstore" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
   tags: skopeo
 
@@ -105,23 +99,6 @@
   until: result is succeeded
   tags: skopeo
 
-- name: copy templates
-  template:
-    dest: "{{ item.dest }}"
-    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-  loop:
-    - { dest: "/etc/containers/policy.json" }
-    - { dest: "/etc/containers/registries.conf" }
-    - { dest: "/etc/containers/registries.d/default.yaml" }
-    - { dest: "/etc/containers/storage.conf" }
-    - { dest: "/usr/share/containers/containers.conf" }
-    - { dest: "/usr/share/containers/mounts.conf" }
-    - { dest: "/usr/share/containers/seccomp.json" }
-  tags: skopeo
-
 - name: prepare files
   file:
     dest: "{{ item.dest }}"
@@ -130,13 +107,6 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
-    - { dest: "/etc/containers/policy.json" }
-    - { dest: "/etc/containers/registries.conf" }
-    - { dest: "/etc/containers/registries.d/default.yaml" }
-    - { dest: "/etc/containers/storage.conf" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
     - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
-    - { dest: "/usr/share/containers/containers.conf" }
-    - { dest: "/usr/share/containers/mounts.conf" }
-    - { dest: "/usr/share/containers/seccomp.json" }
   tags: skopeo
