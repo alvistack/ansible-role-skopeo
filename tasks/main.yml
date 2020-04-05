@@ -89,7 +89,7 @@
       && cd $GOPATH/src/github.com/containers/skopeo \
       && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
       && export PREFIX="/usr/local" \
-      && make binary-local \
+      && make binary-local BUILDTAGS='btrfs_noversion exclude_graphdriver_btrfs' \
       && make install-binary \
       && make install-docs \
       && make install-completions \
