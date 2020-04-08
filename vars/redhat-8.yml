@@ -16,6 +16,6 @@
 
 _yum:
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "gpgme-devel", enablerepo: "PowerTools" }
-  - { state: "latest", name: "libassuan-devel", enablerepo: "PowerTools" }
+  - { state: "latest", name: "gpgme-devel", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
+  - { state: "latest", name: "libassuan-devel", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
   - { state: "latest", name: "make" }
