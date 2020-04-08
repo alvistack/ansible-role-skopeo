@@ -16,8 +16,6 @@
 
 _yum:
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "btrfs-progs-devel" }
-  - { state: "latest", name: "device-mapper-devel" }
   - { state: "latest", name: "gpgme-devel" }
   - { state: "latest", name: "libassuan-devel" }
   - { state: "latest", name: "make" }

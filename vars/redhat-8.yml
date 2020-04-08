@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_zypper:
+_yum:
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "gpgme-devel" }
-  - { state: "latest", name: "libassuan-devel" }
+  - { state: "latest", name: "gpgme-devel", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
+  - { state: "latest", name: "libassuan-devel", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
   - { state: "latest", name: "make" }

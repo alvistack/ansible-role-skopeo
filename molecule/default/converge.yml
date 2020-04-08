@@ -28,10 +28,7 @@
         name: golang
 
     - include_role:
-        name: runc
-
-    - include_role:
-        name: conmon
+        name: containers_common
 
     - include_role:
         name: skopeo

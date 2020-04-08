@@ -16,8 +16,6 @@
 
 _apt:
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "btrfs-tools" }
   - { state: "latest", name: "libassuan-dev" }
-  - { state: "latest", name: "libdevmapper-dev" }
   - { state: "latest", name: "libgpgme11-dev" }
   - { state: "latest", name: "make" }

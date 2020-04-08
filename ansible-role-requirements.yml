@@ -26,10 +26,6 @@
   src: https://github.com/alvistack/ansible-role-golang
   version: develop
 
-- name: runc
-  src: https://github.com/alvistack/ansible-role-runc
-  version: develop
-
-- name: conmon
-  src: https://github.com/alvistack/ansible-role-conmon
+- name: containers_common
+  src: https://github.com/alvistack/ansible-role-containers_common
   version: develop
