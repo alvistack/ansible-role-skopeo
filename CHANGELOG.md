@@ -9,7 +9,7 @@
   - Support Ubuntu 20.04
   - Remove Ubuntu 16.04 support
   - Upgrade minimal Molecule support to 3.0.2
-  - Split shared file assest into `containers_common`
+  - Split role as `skopeo` and `containers_common`
   - Install bash completion
 
 ## 4.2.0 - 2020-02-25
