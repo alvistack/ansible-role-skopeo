@@ -15,11 +15,11 @@
 # limitations under the License.
 
 _skopeo_download:
+  v1.0.0:
+    url: "https://github.com/containers/skopeo/archive/v1.0.0.tar.gz"
+    dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.0.0.tar.gz"
+    checksum: "sha1:453eb3e74cf43acaefe92790ea06d15609073cf8"
   v0.2.0:
     url: "https://github.com/containers/skopeo/archive/v0.2.0.tar.gz"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v0.2.0.tar.gz"
     checksum: "sha1:a4dfc95130eefc1fc48e3fc8e1cbfb2409ed5368"
-  v0.1.41:
-    url: "https://github.com/containers/skopeo/archive/v0.1.41.tar.gz"
-    dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v0.1.41.tar.gz"
-    checksum: "sha1:4f8138f95f1661f663f1abf04efbf084ab2ece6d"
