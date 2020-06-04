@@ -56,8 +56,8 @@
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
   loop:
+    - { dest: "/etc/bash_completion.d" }
     - { dest: "/usr/local/bin" }
-    - { dest: "/usr/local/share/bash-completion/completions" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
   tags: skopeo
 
@@ -75,31 +75,30 @@
   until: get_url_result is succeeded
   tags: skopeo
 
-- name: build package
-  environment:
-    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+- name: unarchive package
   shell: |
     set -o pipefail
+    cd /usr/local/bin
     TMP_DIR="$(mktemp -d)" \
-      && export GOPATH=$TMP_DIR \
-      && export PATH="$GOPATH/bin:$PATH" \
-      && cd $GOPATH \
-      && go get -u github.com/cpuguy83/go-md2man \
-      && mkdir -p $GOPATH/src/github.com/containers/skopeo \
-      && cd $GOPATH/src/github.com/containers/skopeo \
-      && tar -zx -C . -f {{ skopeo_download.dest }} --strip-components=1 \
-      && export PREFIX="/usr/local" \
-      && export BUILDTAGS="btrfs_noversion exclude_graphdriver_btrfs exclude_graphdriver_devicemapper" \
-      && make binary-local \
-      && make install-binary \
-      && make install-docs \
-      && make install-completions \
+      && cp {{ skopeo_download.dest }} $TMP_DIR/skopeo \
+      && chown root:root $TMP_DIR/skopeo \
+      && chmod 0755 $TMP_DIR/skopeo \
+      && mv $TMP_DIR/skopeo . \
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
   when: get_url_result is changed
-  register: result
-  until: result is succeeded
+  tags: skopeo
+
+- name: copy templates
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "/etc/bash_completion.d/skopeo" }
   tags: skopeo
 
 - name: prepare files
@@ -110,6 +109,6 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
+    - { dest: "/etc/bash_completion.d/skopeo" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
-    - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
   tags: skopeo
