@@ -56,8 +56,8 @@
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
   loop:
+    - { dest: "/etc/bash_completion.d" }
     - { dest: "/usr/local/bin" }
-    - { dest: "/usr/local/share/bash-completion/completions" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
   tags: skopeo
 
@@ -98,7 +98,7 @@
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0644') }}"
   loop:
-    - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
+    - { dest: "/etc/bash_completion.d/skopeo" }
   tags: skopeo
 
 - name: prepare files
@@ -109,6 +109,6 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
+    - { dest: "/etc/bash_completion.d/skopeo" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
-    - { dest: "/usr/local/share/bash-completion/completions/skopeo" }
   tags: skopeo
