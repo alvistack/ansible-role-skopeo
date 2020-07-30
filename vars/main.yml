@@ -15,6 +15,10 @@
 # limitations under the License.
 
 _skopeo_download:
+  v1.1.1:
+    url: "https://github.com/alvistack/skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
+    dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.1-linux-amd64"
+    checksum: "sha1:68095db823a72c9f5f02b7f9af4de477076cbe58"
   v1.1.0:
     url: "https://github.com/alvistack/skopeo/releases/download/v1.1.0/skopeo-v1.1.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.0-linux-amd64"
