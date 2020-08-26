@@ -18,12 +18,12 @@ _skopeo_download:
   v1.1.1:
     url: "https://github.com/alvistack/skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.1-linux-amd64"
-    checksum: "sha1:68095db823a72c9f5f02b7f9af4de477076cbe58"
+    checksum: "sha1:b8f67d2702b9df91c4e635748f6f05b0cda3b495"
   v1.1.0:
     url: "https://github.com/alvistack/skopeo/releases/download/v1.1.0/skopeo-v1.1.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.0-linux-amd64"
-    checksum: "sha1:c2bba613a74f7487cb3fe4b858ec52314eb26114"
+    checksum: "sha1:4e5fbd53c320072a7d7880e69222cf51dc1f8cb7"
   v1.0.0:
     url: "https://github.com/alvistack/skopeo/releases/download/v1.0.0/skopeo-v1.0.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.0.0-linux-amd64"
-    checksum: "sha1:030348e50452d6ed862c10baa9653ebaaf65d6ee"
+    checksum: "sha1:9e90622b3c776213b1d4e3d9e9fc2d6334da8377"
