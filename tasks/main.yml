@@ -16,7 +16,6 @@
 
 - name: include default variables
   include_vars: "../vars/main.yml"
-  tags: skopeo
 
 - name: include release specific variables
   include_vars: "{{ lookup('first_found', _params) }}"
@@ -31,7 +30,6 @@
       paths:
         - "../vars"
   ignore_errors: true
-  tags: skopeo
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -46,7 +44,6 @@
       paths:
         - "."
   ignore_errors: true
-  tags: skopeo
 
 - name: prepare directories
   file:
@@ -59,7 +56,6 @@
     - { dest: "/etc/bash_completion.d" }
     - { dest: "/usr/local/bin" }
     - { dest: "{{ skopeo_download.dest | dirname }}" }
-  tags: skopeo
 
 - name: download archive
   vars:
@@ -74,7 +70,6 @@
     - "{{ skopeo_download }}"
   register: get_url_result
   until: get_url_result is succeeded
-  tags: skopeo
 
 - name: unarchive package
   shell: |
@@ -89,7 +84,6 @@
   args:
     executable: "/bin/bash"
   when: get_url_result is changed
-  tags: skopeo
 
 - name: copy templates
   template:
@@ -100,7 +94,6 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/bash_completion.d/skopeo" }
-  tags: skopeo
 
 - name: prepare files
   file:
@@ -112,4 +105,3 @@
   loop:
     - { dest: "/etc/bash_completion.d/skopeo" }
     - { dest: "/usr/local/bin/skopeo", mode: "0755" }
-  tags: skopeo
