@@ -15,15 +15,15 @@
 # limitations under the License.
 
 _skopeo_download:
-  v1.2.0:
+  "v1.2.0":
     url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.2.0/skopeo-v1.2.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.2.0-linux-amd64"
     checksum: "sha1:3f9f8708aab22adeb09f8f5ff467c216fe0d09a7"
-  v1.1.1:
+  "v1.1.1":
     url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.1-linux-amd64"
     checksum: "sha1:b8f67d2702b9df91c4e635748f6f05b0cda3b495"
-  v1.1.0:
+  "v1.1.0":
     url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.1.0/skopeo-v1.1.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.0-linux-amd64"
     checksum: "sha1:4e5fbd53c320072a7d7880e69222cf51dc1f8cb7"
