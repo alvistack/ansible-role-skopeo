@@ -18,7 +18,7 @@ _skopeo_download:
   "v1.2.0":
     url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.2.0/skopeo-v1.2.0-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.2.0-linux-amd64"
-    checksum: "sha1:3f9f8708aab22adeb09f8f5ff467c216fe0d09a7"
+    checksum: "sha1:623df0d38b3fd795cc5b1b2a315a6a4d077694be"
   "v1.1.1":
     url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
     dest: "{{ ansible_user_dir }}/.ansible/tmp/skopeo-v1.1.1-linux-amd64"
