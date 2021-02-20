@@ -15,19 +15,23 @@
 # limitations under the License.
 
 _skopeo_download:
+  "v1.2.2":
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.2/skopeo-v1.2.2-linux-amd64"
+    dest: "/var/cache/ansible/9e8b44b9e7d960b37f40bdb801fbe5324bb7d512a00a1ed7784059299e1dc984/skopeo-v1.2.2-linux-amd64"
+    checksum: "sha256:9e8b44b9e7d960b37f40bdb801fbe5324bb7d512a00a1ed7784059299e1dc984"
   "v1.2.1":
-    url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.2.1/skopeo-v1.2.1-linux-amd64"
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.1/skopeo-v1.2.1-linux-amd64"
     dest: "/var/cache/ansible/80921963d0fdc75cadde91130bcdee37768c0a91508699ac93cd89916a2b4164/skopeo-v1.2.1-linux-amd64"
     checksum: "sha256:80921963d0fdc75cadde91130bcdee37768c0a91508699ac93cd89916a2b4164"
   "v1.2.0":
-    url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.2.0/skopeo-v1.2.0-linux-amd64"
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.0/skopeo-v1.2.0-linux-amd64"
     dest: "/var/cache/ansible/74f7fc0d5644756af4b0b52c69e3bd87971e9cdaa8ae05146ff9771cbd045933/skopeo-v1.2.0-linux-amd64"
     checksum: "sha256:74f7fc0d5644756af4b0b52c69e3bd87971e9cdaa8ae05146ff9771cbd045933"
   "v1.1.1":
-    url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.1.1/skopeo-v1.1.1-linux-amd64"
     dest: "/var/cache/ansible/02cb46200dd799c88276a3b17c671d3379bb2a981b63e322153977d5d1d5b682/skopeo-v1.1.1-linux-amd64"
     checksum: "sha256:02cb46200dd799c88276a3b17c671d3379bb2a981b63e322153977d5d1d5b682"
   "v1.1.0":
-    url: "https://github.com/alvistack/containers-skopeo/releases/download/v1.1.0/skopeo-v1.1.0-linux-amd64"
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.1.0/skopeo-v1.1.0-linux-amd64"
     dest: "/var/cache/ansible/da165fc4243ec7684ff9ae4e54a754dbb2fbeb40fb816120b2e1306ffdd7eabc/skopeo-v1.1.0-linux-amd64"
     checksum: "sha256:da165fc4243ec7684ff9ae4e54a754dbb2fbeb40fb816120b2e1306ffdd7eabc"
