@@ -13,9 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# Skopeo version.
-skopeo_version: "v1.2.3"
-
-# Skopeo download details.
-skopeo_download: "{{ _skopeo_download[skopeo_version] }}"
