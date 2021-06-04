@@ -14,8 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Skopeo release.
+skopeo_release: "v1.3"
+
 # Skopeo version.
-skopeo_version: "v1.3.0"
+skopeo_version: "{{ _skopeo_version[skopeo_release] }}"
 
 # Skopeo download details.
 skopeo_download: "{{ _skopeo_download[skopeo_version] }}"
