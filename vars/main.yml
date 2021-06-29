@@ -16,13 +16,17 @@
 
 _skopeo_version:
   "v1.3": "v1.3.0"
-  "v1.2": "v1.2.3"
+  "v1.2": "v1.2.4"
 
 _skopeo_download:
   "v1.3.0":
     url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.3.0/skopeo-v1.3.0-linux-amd64"
     dest: "/var/cache/ansible/af6df5a9a94f75ac0c27e17b7a58a4dd5253029b2b2fc768b379910401e4de90/skopeo-v1.3.0-linux-amd64"
     checksum: "af6df5a9a94f75ac0c27e17b7a58a4dd5253029b2b2fc768b379910401e4de90"
+  "v1.2.4":
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.4/skopeo-v1.2.4-linux-amd64"
+    dest: "/var/cache/ansible/2f04a048a86ab8d11eb08931630f1fd90ef9f156780a379a16972200cd863776/skopeo-v1.2.4-linux-amd64"
+    checksum: "2f04a048a86ab8d11eb08931630f1fd90ef9f156780a379a16972200cd863776"
   "v1.2.3":
     url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.3/skopeo-v1.2.3-linux-amd64"
     dest: "/var/cache/ansible/8a0457b02b94401295b1c54d4adb27be8b11fa5a10d979d545093d5c34f9a838/skopeo-v1.2.3-linux-amd64"
@@ -31,11 +35,3 @@ _skopeo_download:
     url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.2/skopeo-v1.2.2-linux-amd64"
     dest: "/var/cache/ansible/9e8b44b9e7d960b37f40bdb801fbe5324bb7d512a00a1ed7784059299e1dc984/skopeo-v1.2.2-linux-amd64"
     checksum: "9e8b44b9e7d960b37f40bdb801fbe5324bb7d512a00a1ed7784059299e1dc984"
-  "v1.2.1":
-    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.1/skopeo-v1.2.1-linux-amd64"
-    dest: "/var/cache/ansible/80921963d0fdc75cadde91130bcdee37768c0a91508699ac93cd89916a2b4164/skopeo-v1.2.1-linux-amd64"
-    checksum: "80921963d0fdc75cadde91130bcdee37768c0a91508699ac93cd89916a2b4164"
-  "v1.2.0":
-    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.2.0/skopeo-v1.2.0-linux-amd64"
-    dest: "/var/cache/ansible/74f7fc0d5644756af4b0b52c69e3bd87971e9cdaa8ae05146ff9771cbd045933/skopeo-v1.2.0-linux-amd64"
-    checksum: "74f7fc0d5644756af4b0b52c69e3bd87971e9cdaa8ae05146ff9771cbd045933"
