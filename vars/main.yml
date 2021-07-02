@@ -15,10 +15,14 @@
 # limitations under the License.
 
 _skopeo_version:
-  "v1.3": "v1.3.0"
+  "v1.3": "v1.3.1"
   "v1.2": "v1.2.4"
 
 _skopeo_download:
+  "v1.3.1":
+    url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.3.1/skopeo-v1.3.1-linux-amd64"
+    dest: "/var/cache/ansible/2c8a25d6249c40ecd1491ee1e162fdc70963863328f55e2a4b4188c37741a5b3/skopeo-v1.3.1-linux-amd64"
+    checksum: "2c8a25d6249c40ecd1491ee1e162fdc70963863328f55e2a4b4188c37741a5b3"
   "v1.3.0":
     url: "http://github.com/alvistack/containers-skopeo/releases/download/v1.3.0/skopeo-v1.3.0-linux-amd64"
     dest: "/var/cache/ansible/af6df5a9a94f75ac0c27e17b7a58a4dd5253029b2b2fc768b379910401e4de90/skopeo-v1.3.0-linux-amd64"
