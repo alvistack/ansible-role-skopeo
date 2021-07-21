@@ -14,5 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_zypper_repository:
+  - name: "Virtualization:containers"
+    repo: "https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.3"
+    state: "present"
+
 _zypper:
-  - { state: "latest", name: "bash-completion" }
+  - { state: "latest", name: "skopeo" }
+  - { state: "latest", name: "skopeo-bash-completion" }
