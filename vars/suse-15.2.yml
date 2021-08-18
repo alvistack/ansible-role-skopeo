@@ -15,10 +15,9 @@
 # limitations under the License.
 
 _zypper_repository:
-  - name: "Virtualization:containers"
-    repo: "https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.2"
+  - name: "home:alvistack"
+    repo: "http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.2"
     state: "present"
 
 _zypper:
   - { state: "latest", name: "skopeo" }
-  - { state: "latest", name: "skopeo-bash-completion" }
