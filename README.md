@@ -1,5 +1,7 @@
 # Ansible Role for Skopeo
 
+<img src="/alvistack.svg" width="75" alt="AlviStack">
+
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-skopeo/master)](https://gitlab.com/alvistack/ansible-role-skopeo/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-skopeo.svg)](https://github.com/alvistack/ansible-role-skopeo/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-skopeo.svg)](https://github.com/alvistack/ansible-role-skopeo/blob/master/LICENSE)
