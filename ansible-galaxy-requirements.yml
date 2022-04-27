@@ -20,14 +20,14 @@ collections:
     version: ">=0.0.0,<1.0.0"
 
 roles:
-  - name: runc
+  - name: alvistack.runc
     src: https://github.com/alvistack/ansible-role-runc
     version: develop
 
-  - name: crun
+  - name: alvistack.crun
     src: https://github.com/alvistack/ansible-role-crun
     version: develop
 
-  - name: containers_common
+  - name: alvistack.containers_common
     src: https://github.com/alvistack/ansible-role-containers_common
     version: develop
