@@ -20,6 +20,7 @@
   become: true
   tasks:
     - name: skopeo --version
-      ansible.builtin.command: skopeo --version
+      ansible.builtin.command:
+        cmd: skopeo --version
       register: result
       changed_when: result is not succeeded
